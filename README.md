@@ -222,4 +222,239 @@ if response.status_code == 200:
     print("GitHub Engine Online")
 ```
 
-**Real-World 
+**Real-World Exercise (20 min):** Connect to a public mock API like JSONPlaceholder, fetch mock user posts, filter them for an author ID, and export the matching data to a text log.
+
+#### Day 12: RegEx & String Parsing Masterclass
+**Theory (20 min):** Using `re` to extract precise information from unstructured text streams.
+
+**Interactive Code (20 min):**
+```python
+import re
+
+log_text = "ERROR 2026-07-08: Database connection timeout from IP 192.168.1.50"
+ip_address = re.search(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', log_text)
+print(f"Extracted Threat Source: {ip_address.group()}")
+```
+
+**Real-World Exercise (20 min):** Build a text validation function that scans any string input and returns a boolean confirming if it contains a valid email address pattern.
+
+#### Day 13: The Numeric Engine - NumPy
+**Theory (20 min):** Vectorized operations vs loops, arrays, slicing, and basic statistical modeling.
+
+**Interactive Code (20 min):**
+```python
+import numpy as np
+
+sensor_readings = np.array([22.1, 24.5, 21.9, 30.2, 23.4])
+normalized_readings = sensor_readings - np.mean(sensor_readings)
+print(f"Deviations: {normalized_readings}")
+```
+
+**Real-World Exercise (20 min):** Generate an array of 50 random floating-point values representing stock valuations. Use NumPy to locate the median price, standard deviation, and filter out all elements below the mean.
+
+#### Day 14: Structured Data Pipelines - Pandas Essentials
+**Theory (20 min):** Introduction to DataFrames and Series. Reading CSV files into DataFrames, inspecting shapes, and selecting rows or columns dynamically.
+
+**Interactive Code (20 min):**
+```python
+import pandas as pd
+
+mock_market_data = {
+    "Product": ["SaaS Basic", "SaaS Enterprise", "Consulting"],
+    "MRR": 
+}
+df = pd.DataFrame(mock_market_data)
+print(df[df["MRR"] > 5000])
+```
+
+**Real-World Exercise (20 min):** Generate a DataFrame with 5 user profiles (`Name`, `Department`, `Rating`). Extract the `Name` and `Rating` columns for employees in the `Engineering` department.
+
+### Module 3: Specialization & Interview Readiness (Days 15–21)
+
+Focus: connecting Python directly to target data pathways and mastering high-yield technical interview patterns.
+
+#### Day 15: Deep-Dive Pandas Data Wrangling
+**Theory (20 min):** Data cleaning strategies: `dropna`, `fillna`, `groupby`, and merging frames like SQL joins.
+
+**Interactive Code (20 min):**
+```python
+import pandas as pd
+
+sales_data = pd.DataFrame({
+    "Region": ["West", "East", "West", "North", "East"],
+    "Revenue": 
+})
+regional_yield = sales_data.groupby("Region")["Revenue"].sum().reset_index()
+print(regional_yield)
+```
+
+**Real-World Exercise (20 min):** Build a data cleaning pipeline. Take an imperfect DataFrame containing missing numerical values and mismatched text strings. Impute missing figures with column averages and convert labels to uppercase.
+
+#### Day 16: SQL Database Engineering Connectors
+**Theory (20 min):** Bridging script files and database schemas. Interfacing with databases using `sqlite3` or SQLAlchemy.
+
+**Interactive Code (20 min):**
+```python
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect(":memory:")
+conn.execute("CREATE TABLE leads (id INT, email TEXT)")
+conn.execute("INSERT INTO leads VALUES (1, 'jd@olive-growth.com')")
+
+df = pd.read_sql_query("SELECT * FROM leads", conn)
+print(df)
+conn.close()
+```
+
+**Real-World Exercise (20 min):** Establish a local SQLite database instance. Build an ETL script that reads a local list, loads it into a table structure, and queries back active records.
+
+#### Day 17: AI Integration & Automation Architecture
+**Theory (20 min):** Designing intelligent automation frameworks. Communicating with large language models through APIs and parsing structured inputs from natural language.
+
+**Interactive Code (20 min):**
+```python
+# Abstract blueprint of an automated AI routing agent
+def trigger_ai_agent(prompt_text: str):
+    mock_payload = {"prompt": prompt_text, "temperature": 0.0}
+    return f"AI Classification Output for: '{prompt_text}'"
+
+print(trigger_ai_agent("Extract all tracking codes from invoice #4402"))
+```
+
+**Real-World Exercise (20 min):** Write a script that accepts an unstructured email body, formats an optimization prompt string, and prepares a complete JSON payload ready for an AI chat completion API.
+
+#### Day 18: Core DSA Data Structures for Interviews
+**Theory (20 min):** Big-O time and space complexity, hash maps, and two-pointer approaches.
+
+**Interactive Code (20 min):**
+```python
+# Classic Two-Sum Hash Map Optimization: O(n) Time
+def target_lookup(nums, target):
+    seen_elements = {}
+    for index, val in enumerate(nums):
+        complement = target - val
+        if complement in seen_elements:
+            return [seen_elements[complement], index]
+        seen_elements[val] = index
+    return []
+
+print(target_lookup(, 9))[4][5][6][7]
+```
+
+**Real-World Exercise (20 min):** Write an optimal search function that identifies whether an input string array contains duplicate values in less than O(n^2) runtime complexity.
+
+#### Day 19: Algorithmic Manipulation Patterns
+**Theory (20 min):** Interview-heavy array and string manipulation techniques. Mastering index trackers, window slicing calculations, and multi-condition checks on numerical lists.
+
+**Interactive Code (20 min):**
+```python
+# Reverse a sequence in-place using two references
+def reverse_stream(data_list):
+    left, right = 0, len(data_list) - 1
+    while left < right:
+        data_list[left], data_list[right] = data_list[right], data_list[left]
+        left += 1
+        right -= 1
+    return data_list
+
+print(reverse_stream())[8][9][10][11][4]
+```
+
+**Real-World Exercise (20 min):** Write an efficient sorting logic or frequency scanner that counts occurrences of characters in text records and returns the top 3 most recurring elements.
+
+#### Day 20: Comprehensive Mock Screening Blueprint
+**Theory (20 min):** Synthesizing your skills. Simulating the pressure of a real technical interview. Managing code presentation and outlining logic before writing code.
+
+**Interactive Code (20 min):**
+```python
+# FizzBuzz / Data Stream Validation Pattern
+def evaluate_stream(limit: int):
+    results = []
+    for num in range(1, limit + 1):
+        if num % 3 == 0 and num % 5 == 0:
+            results.append("DataAI")
+        elif num % 3 == 0:
+            results.append("Data")
+        elif num % 5 == 0:
+            results.append("AI")
+        else:
+            results.append(str(num))
+    return results
+
+print(evaluate_stream(15))
+```
+
+**Real-World Exercise (20 min):** Complete a 20-minute timed sprint challenge: write an automated file system audit function that processes a multi-level file path string, isolates file extensions, and aggregates counts using a dictionary tracker.
+
+#### Day 21: Framework Consolidation & Multi-Directional Launch
+**Theory (20 min):** Packaging your knowledge into production-ready skills. Decide your next specialization vector: Data Engineering, Data Science, or AI Automation.
+
+**Action Items (40 min):**
+- Set up your portfolio directory structure.
+- Push all previous daily exercise files to a public GitHub repository.
+- Document the repository with a strong `README.md`.
+
+## Repository structure
+
+```bash
+python-in-21-days/
+├── day_01/
+├── day_02/
+├── day_03/
+├── day_04/
+├── day_05/
+├── day_06/
+├── day_07/
+├── day_08/
+├── day_09/
+├── day_10/
+├── day_11/
+├── day_12/
+├── day_13/
+├── day_14/
+├── day_15/
+├── day_16/
+├── day_17/
+├── day_18/
+├── day_19/
+├── day_20/
+├── day_21/
+└── README.md
+```
+
+## Daily workflow
+
+- Spend 20 minutes on theory.
+- Spend 20 minutes typing the example code.
+- Spend 20 minutes solving the real-world exercise.
+- Commit your work daily.
+- Review mistakes and rewrite old code for clarity.
+
+## Expected outcome
+
+By the end of the 21 days, you should be able to:
+
+- write clean Python scripts confidently,
+- use core data structures effectively,
+- handle files and errors safely,
+- work with NumPy and Pandas,
+- interact with APIs and databases,
+- solve interview-style problems,
+- build automation-ready mini projects.
+
+## Next steps
+
+After finishing the 21 days, choose one primary path and go deeper:
+
+- **Data Analysis:** pandas, visualization, business analysis, and SQL.
+- **Data Engineering:** SQL, ETL pipelines, orchestration, and scalable workflows.
+- **AI Automation:** APIs, structured data, prompt workflows, and automation systems.
+
+## License
+
+Add your preferred license here.
+
+## Connect
+
+Built as part of a focused journey to become stronger in Python, automation, and data-driven systems.
