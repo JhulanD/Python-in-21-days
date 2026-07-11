@@ -2,4 +2,6 @@
 name = "python-in-21-days"
 version = "0.1.0"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "ipykernel>=7.3.0",
+]
